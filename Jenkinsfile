@@ -25,7 +25,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 3000:3000 engboda/lap2:$BUILD_NUMBER'
+                sh 'docker run -d -p 4000:4000 engboda/lap2:$BUILD_NUMBER'
             }
         }
 
