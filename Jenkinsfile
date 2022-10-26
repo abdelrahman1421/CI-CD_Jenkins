@@ -10,7 +10,7 @@ pipeline {
         
         stage('Biuld') {
             steps {
-                sh 'docker build -f dockerfile . -t engboda/lap2:$BUILD_NUMBER'
+                sh 'docker build -f Dockerfile . -t engboda/lap2:$BUILD_NUMBER'
             }
         }
         
