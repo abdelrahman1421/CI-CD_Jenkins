@@ -1,5 +1,5 @@
 - hosts: servers
-  remote_user: ansible
+  remote_user: ubuntu
   become_method: sudo
   become: yes
   tasks:
@@ -16,10 +16,11 @@
       apt:
         name: default-jre
         state: present
+    - name: Transfer the script
+      copy: src=get-docker.sh dest=/home/ubuntu mode=0777
 
-    - name: Set authorized key taken from file
-      authorized_key:
-        user: charlie
-        state: present
-        key: "{{ lookup('id_rsa.pub', '/home/ansible/.ssh/id_rsa.pub') }}"
-          
+    - name: Excute script
+      command: sudo sh /home/ubuntu/get-docker.sh
+
+    - name: Allow Permissions To Use Docker Sock
+      command: sudo chmod 666 /var/run/docker.sock

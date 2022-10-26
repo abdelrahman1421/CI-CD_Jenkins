@@ -49,5 +49,6 @@ then
 
 else
     echo "You Are Now In *$(terraform workspace show)* Workspace"
-    terraform plan -var-file prod.tfvars
+    terraform apply -var-file prod.tfvars
+    ansible-playbook -i ansible/inventory --private-key ~/Projects/terraform.pem ansible/main.yaml
 fi
