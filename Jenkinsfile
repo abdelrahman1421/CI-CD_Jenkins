@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                git 'https://github.com/mahmoud254/jenkins_nodejs_example.git'
+                git 'https://github.com/abdelrahman1421/CI-CD_Jenkins.git'
             }
         }
         
