@@ -30,6 +30,10 @@ pipeline {
         }
 
     }
+post {
+    success {
+        slackSend "Build deployed successfully  $BUILD_NUMBER"
+    }
 
 }
 
